@@ -1,92 +1,75 @@
-🎓 College Feedback Classifier
-A machine learning project using IBM Watsonx.ai Foundation Models to automatically classify open-ended student feedback into categories like Academics, Facilities, or Administration, enabling educational institutions to gain structured insights and improve decision-making.
+# 🎓 College Feedback Classifier
 
-📌 Features
-✅ Classifies open-ended feedback using few-shot prompt engineering
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Watsonx.ai](https://img.shields.io/badge/IBM-Watsonx.ai-blueviolet)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-✅ Utilizes IBM Foundation Models (FLAN-T5 XXL) for text classification
+> Automatically classify student feedback into **Academics**, **Facilities**, or **Administration** using IBM Watsonx.ai Foundation Models.
 
-✅ Exports results to CSV and visualizes key performance metrics
+---
 
-✅ Generates comparison charts and a confusion matrix for analysis
+## 📚 Table of Contents
 
-🎯 Objectives
-Categorize unstructured feedback into meaningful themes
+- [🧠 Project Overview](#-project-overview)
+- [🎯 Objectives](#-objectives)
+- [🛠️ Tools & Technologies](#-tools--technologies)
+- [📈 Methodology](#-methodology)
+- [📊 Visualizations](#-visualizations)
+- [🚀 How to Run](#-how-to-run)
+- [📂 Project Structure](#-project-structure)
+- [✅ Sample Output](#-sample-output)
+- [🐛 Challenges & Solutions](#-challenges--solutions)
+- [📚 References](#-references)
 
-Provide visual and statistical performance evaluation
+---
 
-Enable administrative teams to focus on targeted improvements
+## 🧠 Project Overview
 
-🛠️ Tools & Technologies
-Component	Description
-Language	Python
-Platform	IBM Watsonx.ai + Watson Machine Learning SDK
-Model	FLAN-T5-XXL (via Foundation Models)
-Libraries	pandas, matplotlib, seaborn, scikit-learn, ibm-watson-machine-learning
-Storage	IBM Cloud Object Storage (COS)
+This project uses **few-shot learning** and the **FLAN-T5-XXL** model from IBM Watsonx to transform unstructured student feedback into actionable categories, enabling better administrative decisions in educational institutions.
 
-🧠 Methodology
-Data Collection: Student feedback in CSV format
+---
 
-Data Preprocessing: Clean and split into train/test sets
+## 🎯 Objectives
 
-Few-Shot Prompting: Select 2 examples per category as context
+- Classify student feedback into **Academics**, **Facilities**, or **Administration**
+- Use **few-shot prompting** for zero-training text classification
+- Visualize and export model results for evaluation
 
-Model Selection: Use FLAN-T5-XXL for classification
+---
 
-Prediction: Run the model on test data using few-shot prompts
+## 🛠️ Tools & Technologies
 
-Evaluation: Visualize results, confusion matrix, and classification report
+| Tool                  | Purpose                           |
+|-----------------------|-----------------------------------|
+| **Python**            | Programming Language              |
+| **Watsonx.ai**        | Foundation Model Inference        |
+| **FLAN-T5-XXL**       | Text-to-text classification       |
+| **IBM COS**           | Cloud storage for datasets        |
+| **Pandas / Sklearn**  | Data handling and evaluation      |
+| **Matplotlib / Seaborn** | Data Visualization             |
 
-Export: Save predicted results as classified_feedback_results.csv to COS
+---
 
-📊 Visualizations
-Category distribution before prediction
+## 📈 Methodology
 
-Actual vs. Predicted bar chart
+```mermaid
+graph TD
+A[Load CSV Feedback Data] --> B[Preprocess & Split Data]
+B --> C[Create Few-Shot Prompt Examples]
+C --> D[Call FLAN-T5 Model for Prediction]
+D --> E[Compare Actual vs Predicted]
+E --> F[Export Results & Visualize Performance]
 
-Confusion matrix heatmap
+![image](https://github.com/user-attachments/assets/38549c1d-6aa2-44bd-984e-dcad4a684449)
 
-Precision, recall, F1-score report
+![image](https://github.com/user-attachments/assets/fb67d9b0-169d-47d5-abda-98cea9d79e07)
 
-📂 Project Structure
-kotlin
-Copy
-Edit
-├── data/
-│   └── college_feedback.csv
-├── notebooks/
-│   └── classification_notebook.ipynb
-├── outputs/
-│   └── classified_feedback_results.csv
-├── README.md
-🚀 How to Run
-Upload your feedback CSV to IBM Cloud Object Storage
-
-Set your Watsonx credentials and project ID
-
-Run the classification notebook
-
-View visualizations and download results
-
-📈 Sample Output (CSV)
-Feedback	Actual Category	Predicted Category
-"The labs are well-equipped."	Facilities	Facilities
-"Grievance handling takes too long."	Administration	Administration
-"Faculty is always helpful."	Academics	Academics
-
-🧩 Challenges Faced
-Prompt formatting issues for consistent model output
-
-Handling API latency and timeouts
-
-Minor category confusion in predictions due to close semantics
-
-✅ Solutions: Added exception handling, improved few-shot examples, and ensured balanced category sampling.
-
+![image](https://github.com/user-attachments/assets/6cebeb0e-cfa5-4812-84d1-86486353d965)
 📚 References
-IBM Watsonx.ai Documentation
+🔗 IBM Watsonx.ai Docs
 
-FLAN-T5 Paper (Google Research)
+🔗 FLAN-T5 Research Paper
 
-Scikit-learn Metrics Guide
+🔗 Scikit-learn Classification Metrics
+
+
